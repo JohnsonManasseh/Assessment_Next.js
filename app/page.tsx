@@ -23,11 +23,6 @@ interface ImageType {
   };
 }
 
-
-interface CardProps {
-  image: ImageType;
-}
-
 export default function Home(): JSX.Element {
   const [images, setImages] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');

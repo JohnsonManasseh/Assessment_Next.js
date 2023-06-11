@@ -32,10 +32,10 @@
   cursor: pointer;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 .search-button:hover{
-  background: #d26d01
+  background: #be6302
 }
 .background {
   background-position: center;
@@ -54,9 +54,13 @@
   width: 100%;
   height: 100%;
   background-image: url("/background_image.jpg");
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.778), rgba(0, 0, 0, 0.944)), url("/background_image.jpg");
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.933), rgba(0, 0, 0, 0.944)), url("/background_image.jpg");
   filter: blur(5px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   z-index: -1000;
+  border: 0;
 }
 
 .search-icon{
@@ -131,17 +135,7 @@
   border-radius: 3px;
   font-size: 14px;
 }
-.container ::-webkit-scrollbar {
-  width: 8px;
-}
 
-.container ::-webkit-scrollbar-thumb {
-  background-color: #999999;
-}
-
-.container ::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
-}
 .search-result-text{
   text-align: center;
   color: white;
@@ -186,6 +180,10 @@
   cursor: pointer;
   border-radius: 10px;
   color: white;
+  transition: background-color 0.2s ease;
+}
+.pagination button:hover{
+  background: #be6302
 }
 
 .pagination button:disabled {
@@ -221,6 +219,9 @@
   margin-bottom: 10px;
   color: black;
 }
+.modal-close:hover{
+  background: #be6302
+}
 
 .modal-content button {
   background-color: #e57600;
@@ -229,6 +230,10 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.modal-content button :hover{
+  background: #be6302
 }
 .search-results{
   display: flex;
