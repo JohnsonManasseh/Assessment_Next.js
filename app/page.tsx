@@ -17,7 +17,12 @@ interface ImageType {
     bio: string;
   };
   alt_description: string;
+  urls: {
+    regular: string;
+    small: string;
+  };
 }
+
 
 interface CardProps {
   image: ImageType;
