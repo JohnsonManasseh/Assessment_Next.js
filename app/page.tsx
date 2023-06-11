@@ -54,7 +54,7 @@ export default function Home(): JSX.Element {
 
   const handleSearch = () => {
     fetch(
-      `https://api.unsplash.com/search/photos?client_id=JBvuulT94iaOJOmYz_CC3U5vOhCdyiUF6wFvytfxEps&query=${searchTerm}`
+      `https://api.unsplash.com/search/photos?client_id=JBvuulT94iaOJOmYz_CC3U5vOhCdyiUF6wFvytfxEps&query=${searchTerm}&page=1&per_page=50`
     )
       .then((response) => response.json())
       .then((data) => {
