@@ -7,6 +7,7 @@ import LongParagraph from '../components/LongParagraph';
 import styles from './page.module.css';
 import axios from "axios";
 
+
 interface ImageType {
   id: string;
   user: {
@@ -115,7 +116,7 @@ export default function Home(): JSX.Element {
             <div className={styles['container2']}>
               {visibleItems.map((result: ImageType) => (
                 <div className={styles['card']} key={result.id}>
-                <Image src={result.user.profile_image.large} alt={result.alt_description} width={128} height={128} />
+                <Image src={result.user.profile_image.large} alt={result.alt_description} loading="lazy" width={128} height={128} />
                   <div className={styles['card-info']}>
                     <h5 title={result.user.instagram_username} className={styles['card-username']}>
                       {result.user.instagram_username}

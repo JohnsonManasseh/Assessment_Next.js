@@ -73,7 +73,7 @@ const Search: React.FC<SearchProps> = ({
           value={searchTerm}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
-          placeholder="Search..."
+          placeholder="Search user"
         />
         {searchTerm && <RxCross1 onClick={inputReset} className={styles['close-icon'] } />}
         <button className={styles['search-button']}  onClick={handleSearchClick}>

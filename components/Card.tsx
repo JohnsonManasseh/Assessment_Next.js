@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ image }) => {
 
   return (
     <div  className={styles.card}>
-      <Image src={user.profile_image.large} alt={user.instagram_username} width={128} height={128} />
+      <Image src={user.profile_image.large} alt={user.instagram_username} loading="lazy" width={128} height={128} />
       <div className={styles['card-info']}>
         <h5 title={user.instagram_username} className={styles['card-username']}>
           {user.instagram_username}
