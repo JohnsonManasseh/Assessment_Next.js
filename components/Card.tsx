@@ -3,9 +3,7 @@ import LongParagraph from './LongParagraph';
 import styles from '../app/page.module.css';
 
 interface ImageType {
-  urls: {
-    regular: string;
-  };
+  id: string;
   user: {
     profile_image: {
       large: string;
@@ -13,7 +11,13 @@ interface ImageType {
     instagram_username: string;
     bio: string;
   };
+  alt_description: string;
+  urls: {
+    regular: string;
+    small: string;
+  };
 }
+
 
 interface CardProps {
   image: ImageType;
