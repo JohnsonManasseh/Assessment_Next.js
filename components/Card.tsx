@@ -13,6 +13,7 @@ interface ImageType {
     instagram_username: string;
     bio: string;
   };
+  likes: string
 }
 
 interface CardProps {
@@ -20,7 +21,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ image }) => {
-  const { urls, user } = image;
+  const { urls, user, likes } = image;
 
   return (
     <div  className={styles.card}>
@@ -29,7 +30,7 @@ const Card: React.FC<CardProps> = ({ image }) => {
         <h5 title={user.instagram_username} className={styles['card-username']}>
           {user.instagram_username}
         </h5>
-        <LongParagraph text={user.bio} maxLength={15} />
+        <LongParagraph text={user.bio} likes={likes} maxLength={15} />
       </div>
     </div>
   );

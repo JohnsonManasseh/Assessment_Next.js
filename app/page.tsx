@@ -21,6 +21,7 @@ interface ImageType {
     regular: string;
     small: string;
   };
+  likes: string;
 }
 
 export default function Home(): JSX.Element {
@@ -38,6 +39,7 @@ export default function Home(): JSX.Element {
           "https://api.unsplash.com/photos/random?count=100&client_id=JBvuulT94iaOJOmYz_CC3U5vOhCdyiUF6wFvytfxEps"
         );
         setImages(response.data);
+        console.log(response.data)
       } catch (error) {
         console.log(error);
       }
@@ -110,7 +112,7 @@ export default function Home(): JSX.Element {
             <div className={styles['search-results']}>
               <h2 className={styles['search-result-text']}>SEARCH RESULTS</h2>
             </div>
-            <div className={styles['container']}>
+            <div className={styles['container2']}>
               {visibleItems.map((result: ImageType) => (
                 <div className={styles['card']} key={result.id}>
                 <Image src={result.user.profile_image.large} alt={result.alt_description} width={128} height={128} />
@@ -118,7 +120,7 @@ export default function Home(): JSX.Element {
                     <h5 title={result.user.instagram_username} className={styles['card-username']}>
                       {result.user.instagram_username}
                     </h5>
-                    <LongParagraph text={result.user.bio} maxLength={10} />
+                    <LongParagraph text={result.user.bio} likes={result.likes} maxLength={10} />
                   </div>
                 </div>
               ))}
