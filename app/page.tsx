@@ -1,9 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Search from "../components/Search";
 import Card from "../components/Card";
-import LongParagraph from "../components/LongParagraph";
 import styles from "./page.module.css";
 import axios from "axios";
 
@@ -48,7 +46,6 @@ export default function Home(): JSX.Element {
         setError(
           "An error occurred while fetching images. Please try again later."
         );
-        // <h5>Please try again after some time</h5>
       }
     };
     fetchImages();
@@ -67,7 +64,7 @@ export default function Home(): JSX.Element {
       setSearchResults(response.data.results);
       setShowInitialImages(false);
     } catch (error) {
-      console.error("Error occurred during search:", error);
+      console.error(error);
       setSearchError(
         "An error occurred while fetching images. Please try again later."
       );
@@ -118,7 +115,7 @@ export default function Home(): JSX.Element {
       <div className={styles["background"]}>
         <div className={styles["bg-image"]}></div>
 
-        {error ? (
+        {error && showInitialImages ? (
           <h1 className={styles["fetch-error"]}>{error}</h1>
         ) : (
           <div>
@@ -132,7 +129,7 @@ export default function Home(): JSX.Element {
           </div>
         )}
 
-        {searchError ? (
+        {searchError && !showInitialImages? (
           <h1 className={styles["search-fetch-error"]}>{searchError}</h1>
         ) : (
           <div>
