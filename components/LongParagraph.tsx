@@ -46,7 +46,7 @@ const LongParagraph: React.FC<LongParagraphProps> = ({ text, maxLength, likes, u
           {capitalizedUsername}
         </h5>
         <br />
-       <p>Likes - {likes}</p>
+       <p className={styles['likes-count']} >Likes - {likes}</p>
       <p className={styles['user-description']}>{displayText}</p>
       {text.length > maxLength && (
         <>

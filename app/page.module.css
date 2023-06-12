@@ -146,6 +146,11 @@
   font-size: 13px;
   margin-top: 5px;
 }
+.likes-count{
+  font-size: 20px;
+  letter-spacing: 1px;
+
+}
 
 .card-username {
   overflow: hidden;
@@ -157,6 +162,8 @@
 .card-username[title] {
   position: relative;
   cursor: pointer;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .card-username[title]:hover::after {
@@ -337,7 +344,6 @@
  width: 100%;
   }
   .bg-image{
-  background: black;
   width: 100%;
   height: 690%;
 
@@ -361,7 +367,6 @@
 
 @media (max-width: 375px)  {
   .bg-image{
-  background: black;
   width: 100%;
   height: 500%;
 
@@ -370,7 +375,6 @@
 
 @media (min-width: 740px)  {
   .bg-image{
-  background: black;
   width: 100%;
   height: 790%;
 
@@ -390,7 +394,6 @@
 
 @media (max-width: 540px)  {
   .bg-image{
-  background: black;
   width: 100%;
   height: 790%;
 
@@ -399,7 +402,6 @@
 
 @media (max-width: 1023px)  {
   .bg-image{
-  background: black;
   width: 100%;
   height: 810%;
 }
@@ -410,7 +412,6 @@
 
 @media (max-width: 844px) {
   .bg-image{
-    background: black;
     width: 100%;
     height: 890%;
   }
@@ -424,10 +425,8 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .bg-image{
-
-  background: black;
   width: 100%;
-  height: 325%;
+  height: 380%;
   }
   .modal-content {
     width: 250px;
@@ -461,6 +460,7 @@
     border: 0;
   }
 }
+
 
 
 
