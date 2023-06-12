@@ -103,7 +103,7 @@
   padding: 10px;
   opacity: 0;
   height: 300px;
-  width: 273px;
+  width: 275px;
   transition: opacity 0.3s ease;
 }
 
@@ -443,7 +443,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px)  {
   .bg-image{
     position: absolute;
     top: 0;
@@ -460,6 +460,12 @@
     border: 0;
   }
 }
+
+/* @media (min-width: 1180px)  {
+  .bg-image{
+    height: 200%;
+  }
+} */
 
 
 
