@@ -37,7 +37,7 @@ const Card: React.FC<CardProps> = ({ image }) => {
   };
 
   return (
-    <div  className={styles.card} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div   className={styles['card']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
          {isHovered && (
         <div className={styles['card-details']}>
          <LongParagraph text={user.bio} likes={likes} maxLength={40} user={user} />

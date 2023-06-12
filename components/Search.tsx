@@ -86,7 +86,7 @@ const Search: React.FC<SearchProps> = ({
           Search
         </button>
 
-        {errorMessage && <p className={styles['err-message']} >{errorMessage}</p>}
+       
 
         {suggestions.length > 0 && (
           <ul className={styles['data-result']} >
@@ -101,7 +101,10 @@ const Search: React.FC<SearchProps> = ({
             ))}
           </ul>
         )}
+
+
       </div>
+      {errorMessage && <p className={styles['err-message']} >{errorMessage}</p>}
     </div>
   );
 };
