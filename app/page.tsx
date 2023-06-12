@@ -54,12 +54,11 @@ export default function Home(): JSX.Element {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(
+      const response = await axios.get(
         `https://api.unsplash.com/search/photos?client_id=JBvuulT94iaOJOmYz_CC3U5vOhCdyiUF6wFvytfxEps&query=${searchTerm}&page=1&per_page=50`
       );
-      const data = await response.json();
       setImages([]);
-      setSearchResults(data.results);
+      setSearchResults(response.data.results);
       setShowInitialImages(false);
     } catch (error) {
       console.error("Error occurred during search:", error);
