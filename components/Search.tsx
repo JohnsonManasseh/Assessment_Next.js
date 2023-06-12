@@ -7,12 +7,14 @@ interface SearchProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   handleSearch: () => void;
+  setError: (error: string) => void;
 }
 
 const Search: React.FC<SearchProps> = ({
   searchTerm,
   setSearchTerm,
   handleSearch,
+  setError
 }) => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const predefinedSuggestions = [
@@ -38,6 +40,7 @@ const Search: React.FC<SearchProps> = ({
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       handleSearch();
+      setError('')
     }
   };
 
@@ -46,11 +49,13 @@ const Search: React.FC<SearchProps> = ({
     setSuggestions([]);
     handleSearch();
     setErrorMessage('');
+    setError('')
   };
 
   const inputReset = () => {
     setSearchTerm('');
     setSuggestions([]);
+    setError('')
   };
 
   const handleSearchClick = () => {
@@ -60,6 +65,7 @@ const Search: React.FC<SearchProps> = ({
       setErrorMessage('');
       handleSearch();
       setSuggestions([]);
+      setError('')
     }
   };
 
