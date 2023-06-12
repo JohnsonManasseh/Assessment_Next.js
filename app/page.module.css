@@ -302,19 +302,168 @@
 }
 .responsive-image{
   width: 100%;
-  /* height: auto; */
+  /* height: 100%; */
 }
 .fetch-error{
   color: white;
   padding: 65px 0px;
   font-weight: 500;
+  text-align: center;
 }
 .search-fetch-error{
   color: white;
   font-weight: 500;
   padding-bottom: 135px;
+  text-align: center;
 }
 
+@media (max-width: 767px) {
+  .container{
+    justify-content: center;
+    padding-left: 0px;
+    width: 100%;
+  }
+  .container2{
+    justify-content: center;
+ padding-left: 0px;
+ width: 100%;
+  }
+  .bg-image{
+  background: black;
+  width: 100%;
+  height: 690%;
+
+  }
+.form{
+  width: 350px;
+}
+.search-button{
+  padding: 20px 20px;
+}
+.card{
+  margin-right: 0px;
+}
+.data-result{
+  width: 349px;
+}
+
+ 
+}
+
+/* @media (min-height: 280px) and (max-width: 653px)  {
+  .bg-image{
+
+    background: black;
+    width: 100%;
+    
+    height: 890%;
+}
+    .form{
+      width: 229px;
+    }
+    .search-button{
+      padding: 20px 2px;
+    }
+    .container{
+      justify-content: center;
+      padding-left: 30px;
+   width: 90%;
+    }
+    .container2{
+      justify-content: center;
+      padding-left: 30px;
+   width: 90%;
+    }
+    .card{
+      margin-right: 0px;
+    }
+    
+} */
+
+@media (max-width: 375px)  {
+  .bg-image{
+  background: black;
+  width: 100%;
+  height: 500%;
+
+  }
+}
+
+@media (min-width: 740px)  {
+  .bg-image{
+  background: black;
+  width: 100%;
+  height: 790%;
+
+  }
+  .container{
+    justify-content: center;
+ padding-left: 0px;
+ width: 100%;
+  }
+  .container2{
+    justify-content: center;
+ padding-left: 0px;
+ width: 100%;
+  }
+}
+
+@media (max-width: 540px)  {
+  .bg-image{
+  background: black;
+  width: 100%;
+  height: 790%;
+
+  }
+}
+
+@media (max-width: 1023px)  {
+  .bg-image{
+
+  background: black;
+  width: 100%;
+  
+  height: 810%;
+
+  }
+}
+
+@media (max-width: 844px) {
+  .bg-image{
+
+    background: black;
+    width: 100%;
+    
+    height: 890%;
+  
+    }
+    
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bg-image{
+
+  background: black;
+  width: 100%;
+  height: 325%;
+  }
+  .container{
+    justify-content: center;
+ padding-left: 0px;
+ width: 100%;
+  }
+  .container2{
+    justify-content: center;
+ padding-left: 0px;
+ width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bg-image{
+    height: 155%;
+    }
+}
 
 
 
