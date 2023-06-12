@@ -323,6 +323,9 @@
 }
 
 @media (max-width: 767px) {
+  .modal-content {
+    width: 250px;
+  }
   .container{
     justify-content: center;
     padding-left: 0px;
@@ -396,24 +399,24 @@
 
 @media (max-width: 1023px)  {
   .bg-image{
-
   background: black;
   width: 100%;
-  
   height: 810%;
-
+}
+  .modal-content {
+    width: 250px;
   }
 }
 
 @media (max-width: 844px) {
   .bg-image{
-
     background: black;
     width: 100%;
-    
     height: 890%;
-  
-    }
+  }
+  .modal-content {
+    width: 250px;
+  }
     .err-message{
       left: 107px;
     }
@@ -425,6 +428,9 @@
   background: black;
   width: 100%;
   height: 325%;
+  }
+  .modal-content {
+    width: 250px;
   }
   .container{
     justify-content: center;
