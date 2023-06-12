@@ -52,20 +52,20 @@ export default function Home(): JSX.Element {
     setCurrentPage(1); 
   }, [images, searchResults]);
 
-  const handleSearch = () => {
-    fetch(
-      `https://api.unsplash.com/search/photos?client_id=JBvuulT94iaOJOmYz_CC3U5vOhCdyiUF6wFvytfxEps&query=${searchTerm}&page=1&per_page=50`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setImages([]);
-        setSearchResults(data.results);
-        setShowInitialImages(false);
-      })
-      .catch((error) => {
-        console.error("Error occurred during search:", error);
-      });
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(
+        `https://api.unsplash.com/search/photos?client_id=JBvuulT94iaOJOmYz_CC3U5vOhCdyiUF6wFvytfxEps&query=${searchTerm}&page=1&per_page=50`
+      );
+      const data = await response.json();
+      setImages([]);
+      setSearchResults(data.results);
+      setShowInitialImages(false);
+    } catch (error) {
+      console.error("Error occurred during search:", error);
+    }
   };
+  
 
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
@@ -129,6 +129,7 @@ export default function Home(): JSX.Element {
           </div>
         )}
       </div>
+
       {(showInitialImages || (searchResults.length > 0 && totalPages > 1)) && (
         <div className={styles['pagination']}>
           <button className={styles['pagination-button']} disabled={currentPage === 1} onClick={handlePreviousPage}>
