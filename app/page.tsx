@@ -113,16 +113,8 @@ export default function Home(): JSX.Element {
               <h2 className={styles['search-result-text']}>SEARCH RESULTS</h2>
             </div>
             <div className={styles['container2']}>
-              {visibleItems.map((result: ImageType) => (
-                <div className={styles['card']} key={result.id}>
-                <Image src={result.user.profile_image.large} alt={result.alt_description} loading="lazy" width={128} height={128} />
-                  <div className={styles['card-info']}>
-                    <h5 title={result.user.instagram_username} className={styles['card-username']}>
-                      {result.user.instagram_username}
-                    </h5>
-                    <LongParagraph text={result.user.bio} likes={result.likes} maxLength={10} />
-                  </div>
-                </div>
+              {visibleItems.map((image: ImageType) => (
+                  <Card key={image.id} image={image} />
               ))}
             </div>
           </div>
