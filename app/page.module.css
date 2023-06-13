@@ -328,6 +328,32 @@
   padding-bottom: 135px;
   text-align: center;
 }
+.loader-container {
+  position: absolute;
+  top: 148px;
+  left: 122px;
+}
+.parent-position{
+  position: relative;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e57600;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @media (max-width: 767px) {
   .modal-content {

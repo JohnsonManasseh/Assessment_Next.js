@@ -31,6 +31,7 @@ export default function Home(): JSX.Element {
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState <string> ("");
   const [searchError, setSearchError] = useState <string> ("");
+  const [loader, setLoader] = useState(true)
   const itemsPerPage = 15;
 
   useEffect(() => {
@@ -49,6 +50,7 @@ export default function Home(): JSX.Element {
       }
     };
     fetchImages();
+
   }, []);
 
   useEffect(() => {
@@ -142,7 +144,7 @@ export default function Home(): JSX.Element {
                 </div>
                 <div className={styles["container2"]}>
                   {visibleItems.map((image: ImageType) => (
-                    <Card key={image.id} image={image} />
+                    <Card  key={image.id} image={image} />
                   ))}
                 </div>
               </div>

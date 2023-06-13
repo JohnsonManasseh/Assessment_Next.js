@@ -1,7 +1,8 @@
-import Image from 'next/image';
-import LongParagraph from './LongParagraph';
-import styles from '../app/page.module.css';
-import { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import LongParagraph from "./LongParagraph";
+import styles from "../app/page.module.css";
+import Loader from "./Loader";
 
 interface ImageType {
   urls: {
@@ -14,7 +15,7 @@ interface ImageType {
     instagram_username: string;
     bio: string;
   };
-  likes: string
+  likes: string;
 }
 
 interface CardProps {
@@ -23,17 +24,38 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ image }) => {
   const { urls, user, likes } = image;
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  }
 
   return (
-    <div   className={styles['card']} >
-        <div className={styles['card-details']}>
-         <LongParagraph text={user.bio} likes={likes} maxLength={40} user={user} />
+    <>
+    <div className={styles["card"]}>
+       {isLoading && <Loader />}
+        <div>
+          <div className={styles["card-details"]}>
+            <LongParagraph
+              text={user.bio}
+              likes={likes}
+              maxLength={40}
+              user={user}
+            />
+          </div>
+          <Image
+            className={styles["responsive-image"]}
+            src={urls.regular}
+            alt={user.instagram_username}
+            loading="lazy"
+            width={270}
+            height={300}
+            onLoad={handleImageLoad}
+          />
+          <div className={styles["card-info"]}></div>
         </div>
-     
-      <Image className={styles['responsive-image']} src={urls.regular} alt={user.instagram_username} loading="lazy" width={270} height={300} />
-      <div className={styles['card-info']}>
-      </div>
     </div>
+    </>
   );
 };
 
