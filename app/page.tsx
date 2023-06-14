@@ -40,13 +40,14 @@ export default function Home(): JSX.Element {
       try {
         setInitialLoading("Loading Images...")
         const response = await axios.get(
-          "https://api.unsplash.com/photos/random?count=100&client_id=JBvuulT94iaOJOmYz_CC3U5vOhCdyiUF6wFvytfxEps"
+          `https://api.unsplash.com/photos/random?count=100&client_id=${process.env.NEXT_PUBLIC_API_KEY}`
         );
         setImages(response.data);
         console.log(response.data);
         setInitialLoading("")
       } catch (error) {
         console.log(error);
+        setInitialLoading("")
         setError(
           "An error occurred while fetching images. Please try again later."
         );
@@ -64,7 +65,7 @@ export default function Home(): JSX.Element {
     try {
       // setSearchLoading("Loading Images...")
       const response = await axios.get(
-        `https://api.unsplash.com/search/photos?client_id=JBvuulT94iaOJOmYz_CC3U5vOhCdyiUF6wFvytfxEps&query=${searchTerm}&page=1&per_page=50`
+        `https://api.unsplash.com/search/photos?client_id=${process.env.NEXT_PUBLIC_API_KEY}&query=${searchTerm}&page=1&per_page=50`
       );
       setImages([]);
       setSearchResults(response.data.results);
