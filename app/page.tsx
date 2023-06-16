@@ -32,12 +32,12 @@ export default function Home(): JSX.Element {
   const [error, setError] = useState <string> ("");
   const [searchError, setSearchError] = useState <string> ("");
   const [initialLoading, setInitialLoading] = useState("")
-  const [searchLoading, setSearchLoading] = useState("")
   const itemsPerPage = 15;
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
+        setSearchResults([])
         setInitialLoading("Loading Images...")
         const response = await axios.get(
           `https://api.unsplash.com/photos/random?count=100&client_id=${process.env.NEXT_PUBLIC_API_KEY}`
@@ -45,6 +45,7 @@ export default function Home(): JSX.Element {
         setImages(response.data);
         console.log(response.data);
         setInitialLoading("")
+        // console.log(setResults)
       } catch (error) {
         console.log(error);
         setInitialLoading("")
@@ -68,6 +69,7 @@ export default function Home(): JSX.Element {
         `https://api.unsplash.com/search/photos?client_id=${process.env.NEXT_PUBLIC_API_KEY}&query=${searchTerm}&page=1&per_page=50`
       );
       setImages([]);
+      console.log(response.data.results.length);
       setSearchResults(response.data.results);
       setShowInitialImages(false);
       // setSearchLoading("")
@@ -123,7 +125,7 @@ export default function Home(): JSX.Element {
       <div className={styles["background"]}>
         <div className={styles["bg-image"]}></div>
 
-
+       
         {initialLoading &&  <h1 className={styles["fetch-error"]}>{initialLoading}</h1>}
         {error && showInitialImages ? (
           <h1 className={styles["fetch-error"]}>{error}</h1>
@@ -139,27 +141,31 @@ export default function Home(): JSX.Element {
           </div>
         )}
 
-       {/* {searchLoading &&  <h1 className={styles["fetch-error"]}>{searchLoading}</h1>} */}
-        {searchError && !showInitialImages? (
-          <h1 className={styles["search-fetch-error"]}>{searchError}</h1>
-        ) : (
-          <div>
-            {!showInitialImages && searchResults.length > 0 && (
-              <div>
-                <div className={styles["search-results"]}>
-                  <h2 className={styles["search-result-text"]}>
-                    SEARCH RESULTS
-                  </h2>
-                </div>
-                <div className={styles["container2"]}>
-                  {visibleItems.map((image: ImageType) => (
-                    <Card  key={image.id} image={image} />
-                  ))}
-                </div>
-              </div>
-            )}
+{!showInitialImages && searchResults.length === 0 ? (<h1 className={styles["fetch-error"]}>No results found...</h1>) : (
+  <div>
+  {searchError && !showInitialImages? (
+    <h1 className={styles["search-fetch-error"]}>{searchError}</h1>
+  ) : (
+    <div>
+      {!showInitialImages && searchResults.length > 0 && (
+        <div>
+          <div className={styles["search-results"]}>
+            <h2 className={styles["search-result-text"]}>
+              SEARCH RESULTS
+            </h2>
           </div>
-        )}
+          <div className={styles["container2"]}>
+            {visibleItems.map((image: ImageType) => (
+              <Card  key={image.id} image={image} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )}
+  </div>
+)}
+        
       </div>
 
       {(showInitialImages || (searchResults.length > 0 && totalPages > 1)) && (
