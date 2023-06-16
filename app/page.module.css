@@ -150,7 +150,7 @@
 .likes-count{
   font-size: 20px;
   letter-spacing: 1px;
-
+color: #d26d01;
 }
 
 .card-username {
@@ -241,7 +241,7 @@
 }
 
 .modal-container {
-  position: absolute; 
+  position: relative; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,8 +252,8 @@
   background-color: #fff;
   padding: 10px;
   border-radius: 5px;
-  width: 400px;
-  max-width: 90%;
+  /* width: 400px;
+  max-width: 90%; */
   position: relative; 
 }
 

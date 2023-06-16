@@ -25,14 +25,17 @@ const LongParagraph: React.FC<LongParagraphProps> = ({ text, maxLength, likes, u
     return null;
   }
 
-  const displayText = expanded ? text : text.substring(0, maxLength);
+  // const displayText = expanded ? text : text.substring(0, maxLength);
+  const displayText = text.substring(0, maxLength);
 
-  const toggleExpanded = () => {
-    setExpanded(!expanded);
-  };
+  // const toggleExpanded = () => {
+  //   setExpanded(!expanded);
+  // };
 
   const openModal = () => {
     setModalOpen(true);
+    setExpanded(!expanded);
+    setModalOpen(!modalOpen)
   };
 
   const capitalizedUsername = user.instagram_username
@@ -57,7 +60,7 @@ const LongParagraph: React.FC<LongParagraphProps> = ({ text, maxLength, likes, u
        </p>
      </>
    )}
-   {expanded && <p>{text}</p>}
+   {/* {expanded && <p>{text}</p>} */}
    {modalOpen && <Modal user={user} text={text} likes={likes} closeModal={() => setModalOpen(false)} />}
  </div>
   );
