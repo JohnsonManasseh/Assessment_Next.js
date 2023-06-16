@@ -141,7 +141,7 @@ export default function Home(): JSX.Element {
           </div>
         )}
 
-{!showInitialImages && searchResults.length === 0 ? (<h1 className={styles["fetch-error"]}>No results found...</h1>) : (
+{!showInitialImages && searchResults.length === 0 ? (<h1 className={styles["fetch-error"]}>No results found</h1>) : (
   <div>
   {searchError && !showInitialImages? (
     <h1 className={styles["search-fetch-error"]}>{searchError}</h1>
