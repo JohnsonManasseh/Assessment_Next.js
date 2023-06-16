@@ -33,7 +33,7 @@ const LongParagraph: React.FC<LongParagraphProps> = ({ text, maxLength, likes, u
   // };
 
   const openModal = () => {
-    setModalOpen(true);
+    // setModalOpen(true);
     setExpanded(!expanded);
     setModalOpen(!modalOpen)
   };
@@ -61,7 +61,9 @@ const LongParagraph: React.FC<LongParagraphProps> = ({ text, maxLength, likes, u
      </>
    )}
    {/* {expanded && <p>{text}</p>} */}
-   {modalOpen && <Modal user={user} text={text} likes={likes} closeModal={() => setModalOpen(false)} />}
+   {modalOpen && <Modal user={user} text={text} likes={likes} closeModal={() => {
+  setModalOpen(!modalOpen);
+  setExpanded(!expanded);}} />}
  </div>
   );
 };
