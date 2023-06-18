@@ -41,6 +41,7 @@ const Search: React.FC<SearchProps> = ({
     if (event.key === 'Enter') {
       handleSearch();
       setError('')
+      setErrorMessage('');
     }
   };
 
