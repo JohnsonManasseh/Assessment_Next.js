@@ -142,11 +142,13 @@
   color: #e57600;
   cursor: pointer;
   font-size: 10px;
+  display: inline-block;
 }
 
 .user-description{
   font-size: 13px;
   margin-top: 5px;
+  margin-bottom: -6px;
 }
 .likes-count{
   font-size: 23px;
