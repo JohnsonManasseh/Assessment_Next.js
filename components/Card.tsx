@@ -52,12 +52,16 @@ const Card: React.FC<CardProps> = ({ image }) => {
   };
 
   return (
-    <motion.div
+    <>
+    {/* <motion.div
     variants={item}
     initial="hidden"
     animate="visible"
-  >
-    <div className={styles["card"]}>
+  > */}
+    <motion.div
+    variants={item}
+    initial="hidden"
+    animate="visible" className={styles["card"]}>
        {isLoading && <Loader />}
         <div>
           <div className={styles["card-details"]}>
@@ -79,8 +83,9 @@ const Card: React.FC<CardProps> = ({ image }) => {
           />
           <div className={styles["card-info"]}></div>
         </div>
-    </div>
     </motion.div>
+    {/* </motion.div> */}
+    </>
   );
 };
 
