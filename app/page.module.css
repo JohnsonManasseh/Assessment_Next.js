@@ -35,7 +35,8 @@
   transition: background-color 0.2s ease;
 }
 .search-button:hover{
-  background: #be6302
+  background: #dd8323;
+  /* background: #be6302 */
 }
 .background {
   background-position: center;
@@ -325,9 +326,10 @@
 }
 .search-fetch-error{
   color: white;
-  font-weight: 500;
-  padding-bottom: 135px;
-  text-align: center;
+    font-weight: 500;
+    padding-bottom: 65px;
+    text-align: center;
+    padding-top: 65px;
 }
 .loader-container {
   position: absolute;

@@ -4,6 +4,7 @@ import Search from "../components/Search";
 import Card from "../components/Card";
 import styles from "./page.module.css";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 interface ImageType {
   setError: string;
@@ -64,7 +65,6 @@ export default function Home(): JSX.Element {
 
   const handleSearch = async () => {
     try {
-      // setSearchLoading("Loading Images...")
       const response = await axios.get(
         `https://api.unsplash.com/search/photos?client_id=${process.env.NEXT_PUBLIC_API_KEY}&query=${searchTerm}&page=1&per_page=50`
       );
@@ -72,7 +72,6 @@ export default function Home(): JSX.Element {
       console.log(response.data.results.length);
       setSearchResults(response.data.results);
       setShowInitialImages(false);
-      // setSearchLoading("")
     } catch (error) {
       console.error(error);
       setSearchError(
@@ -112,6 +111,13 @@ export default function Home(): JSX.Element {
     endIndex = currentIndex + visibleItems.length;
   }
 
+  const loading = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1
+    }
+  };
+
   return (
     <main className={styles["remove-default"]}>
       <div className={styles["search-bar"]}>
@@ -126,9 +132,11 @@ export default function Home(): JSX.Element {
         <div className={styles["bg-image"]}></div>
 
        
-        {initialLoading &&  <h1 className={styles["fetch-error"]}>{initialLoading}</h1>}
+        {initialLoading &&  <motion.h1  initial="hidden"
+    animate="visible" variants={loading} className={styles["fetch-error"]}>{initialLoading}</motion.h1>}
         {error && showInitialImages ? (
-          <h1 className={styles["fetch-error"]}>{error}</h1>
+          <motion.h1 initial="hidden"
+          animate="visible" variants={loading} className={styles["fetch-error"]}>{error}</motion.h1>
         ) : (
           <div>
             {showInitialImages && (
@@ -141,10 +149,12 @@ export default function Home(): JSX.Element {
           </div>
         )}
 
-{!showInitialImages && searchResults.length === 0 ? (<h1 className={styles["fetch-error"]}>No results found</h1>) : (
+{!showInitialImages && searchResults.length === 0 ? (<motion.h1 initial="hidden"
+    animate="visible" variants={loading} className={styles["fetch-error"]}>No results found</motion.h1>) : (
   <div>
   {searchError && !showInitialImages? (
-    <h1 className={styles["search-fetch-error"]}>{searchError}</h1>
+    <motion.h1 initial="hidden"
+    animate="visible" variants={loading} className={styles["search-fetch-error"]}>{searchError}</motion.h1>
   ) : (
     <div>
       {!showInitialImages && searchResults.length > 0 && (

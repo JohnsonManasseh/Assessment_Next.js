@@ -3,6 +3,7 @@ import Image from "next/image";
 import LongParagraph from "./LongParagraph";
 import styles from "../app/page.module.css";
 import Loader from "./Loader";
+import { motion } from "framer-motion";
 
 interface ImageType {
   urls: {
@@ -30,8 +31,32 @@ const Card: React.FC<CardProps> = ({ image }) => {
     setIsLoading(false);
   }
 
+  // const container = {
+  //   hidden: { opacity: 1, scale: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     scale: 1,
+  //     transition: {
+  //       delayChildren: 0.3,
+  //       staggerChildren: 0.2
+  //     }
+  //   }
+  // };
+  
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    }
+  };
+
   return (
-    <>
+    <motion.div
+    variants={item}
+    initial="hidden"
+    animate="visible"
+  >
     <div className={styles["card"]}>
        {isLoading && <Loader />}
         <div>
@@ -55,7 +80,7 @@ const Card: React.FC<CardProps> = ({ image }) => {
           <div className={styles["card-info"]}></div>
         </div>
     </div>
-    </>
+    </motion.div>
   );
 };
 
